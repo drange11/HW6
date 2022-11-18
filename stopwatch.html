@@ -23,18 +23,22 @@
             var $buttonStart = $("#button-start");
             var $buttonStop =$("#button-stop");
             var $buttonReset = $("#button-reset");
+            var $timerDiv = $("#timer");
             var interval;
 
 
-            $("timer").addClass("timer-background")
+            $timerDiv.addClass("timer-background")
 
             $buttonStart.on("click", function () {
                 clearInterval(interval);
                 interval = setInterval(startTimer, 10);
+                $timerDiv.css("background-color", "seagreen");
             })
 
             $buttonStop.on("click", function () {
                 clearInterval(interval);
+                if(seconds != 00 && tens != 00)
+                    $timerDiv.css("background-color", "violet");
             })
 
             $buttonReset.on("click", function () {
@@ -43,6 +47,7 @@
                 seconds = "00";
                 $appendTens.text(tens);
                 $appendSeconds.text(seconds);
+                $timerDiv.css("background-color", "aqua");
             })
 
             function startTimer() {
@@ -75,6 +80,8 @@
         .timer-background {
             background-color: aqua;
             margin: auto;
+            text-align: center;
+            padding: 10px;
         }
     </style>
 </head>
