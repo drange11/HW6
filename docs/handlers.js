@@ -100,8 +100,8 @@ $(document).ready(function () {
     }
 
     function startBlink() {
-        $timerDiv.fadeOut(2000, 1.0)
-        $timerDiv.fadeIn(2000, .8)
+        $timerDiv.fadeOut(2000, 0.8)
+        $timerDiv.fadeIn(2000, 1.0)
         console.log("working")
     }
 });
