@@ -1,5 +1,8 @@
 <!-- 
-    HW6 Starter code
+    Darian Range
+    CPSC 332
+    HW6
+    11/18/2022
      Modified from: https://codepen.io/cathydutton/pen/GBcvo
     -->
 <!DOCTYPE html>
@@ -9,94 +12,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HW6 - JQuery</title>
-    <script
-        src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
-        integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="
-        crossorigin="anonymous">
-    </script>
-    <script>
-        $(document).ready(function () {
-            var seconds = 00;
-            var tens = 00;
-            var $appendTens = $("#tens")
-            var $appendSeconds = $("#seconds")
-            var $buttonStart = $("#button-start");
-            var $buttonStop =$("#button-stop");
-            var $buttonReset = $("#button-reset");
-            var $timerDiv = $("#timer");
-            var interval;
-
-
-            $timerDiv.addClass("timer-background")
-            $buttonReset.addClass("btn")
-            $buttonStart.addClass("btn")
-            $buttonStop.addClass("btn")
-
-            $(".btn").css({
-                "background-color": "green",
-                "margin": "auto",
-                "margin-top": "10px",
-                "color": "white",
-                "padding": "10px",
-                "border-radius": "25px",
-
-            })
-
-            $buttonStart.on("click", function () {
-                clearInterval(interval);
-                interval = setInterval(startTimer, 10);
-                $timerDiv.css("background-color", "seagreen");
-            })
-
-            $buttonStop.on("click", function () {
-                clearInterval(interval);
-                if(seconds != 00 && tens != 00)
-                    $timerDiv.css("background-color", "violet");
-            })
-
-            $buttonReset.on("click", function () {
-                clearInterval(interval);
-                tens = "00";
-                seconds = "00";
-                $appendTens.text(tens);
-                $appendSeconds.text(seconds);
-                $timerDiv.css("background-color", "aqua");
-            })
-
-            function startTimer() {
-                tens++;
-
-                if (tens < 9) {
-                    $appendTens.text("0" + tens);
-                }
-
-                if (tens > 9) {
-                    $appendTens.text(tens);
-
-                }
-
-                if (tens > 99) {
-                    console.log("seconds");
-                    seconds++;
-                    $appendSeconds.text("0" + seconds);
-                    tens = 0;
-                    $appendTens.text("0" + 0);
-                }
-
-                if (seconds > 9) {
-                    $appendSeconds.text(seconds);
-                }
-            }
-        });
-    </script>
-    <style>
-        .timer-background {
-            background-color: aqua;
-            margin: auto;
-            text-align: center;
-            padding: 10px;
-        }
-    </style>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="handlers.js"></script>
 </head>
 
 <body>
